@@ -4,6 +4,7 @@ namespace CSharpCopySample;
 
 class SampleClass
 {
+
     public object PropertyA { get; set; } = new object();
 
     /// <summary>
@@ -27,13 +28,15 @@ class SampleClass
     {
         return JsonSerializer.Deserialize<SampleClass>(JsonSerializer.Serialize(this));
     }
+
 }
 
 internal class Program
 {
-    static void Main(string[] args)
+
+    static void Main()
     {
-        SampleClass sample = new SampleClass();
+        SampleClass sample = new();
 
         Console.WriteLine("サンプル1 参照渡し");
         SampleClass sample1 = sample;
@@ -52,4 +55,5 @@ internal class Program
         Console.WriteLine($@"sample.Equals(sample3) : {sample.Equals(sample3)}");
         Console.WriteLine($@"sample.PropertyA.Equals(sample3.PropertyA) : {sample.PropertyA.Equals(sample3.PropertyA)}");
     }
+
 }
